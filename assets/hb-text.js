@@ -9,7 +9,7 @@
 
   var CJK = /[\u2e80-\u2fff\u3000-\u30ff\u3100-\u312f\u3190-\u31ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uff00-\uffef]/;
   var CJK_G = /[\u2e80-\u2fff\u3000-\u30ff\u3100-\u312f\u3190-\u31ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uff00-\uffef]+/g;
-  var LATIN_BAD = /Taipei|TAIPEI|Taiwan|TAIWAN|Keelung|Tamsui|Xinyi|Zhongshan|Longshan|Shilin|Ximending|Ximen|Dadaocheng|Songshan|Wanhua|Datong|Zhongzheng|Beitou|Neihu|Nangang|Daan|Da'an/;
+  var LATIN_BAD = /7-TWELVE|FamilyMark|Hi-Lite|Spar\b|Dim Sum|Taipei|TAIPEI|Taiwan|TAIWAN|Keelung|Tamsui|Xinyi|Zhongshan|Longshan|Shilin|Ximending|Ximen|Dadaocheng|Songshan|Wanhua|Datong|Zhongzheng|Beitou|Neihu|Nangang|Daan|Da'an/;
 
   function hash(s) {
     var h = 2166136261;
@@ -260,7 +260,7 @@
   function latinFix(s) {
     return s
       .replace(/TAIPEI CITY BUS/g, 'HACKBRIDGE BUS').replace(/Taipei City/g, 'Hackbridge').replace(/TAIPEI/g, 'HACKBRIDGE').replace(/Taipei/g, 'Hackbridge')
-      .replace(/TAIWAN/g, 'BRITAIN').replace(/Taiwanese/g, 'British').replace(/Taiwan/g, 'Britain')
+      .replace(/7-TWELVE/g, 'CORNER & CO').replace(/FamilyMark/g, 'LOCAL MART').replace(/Hi-Lite/g, 'LATE & LUCKY').replace(/\bSpar\b/g, 'CORNER & CO').replace(/Dim Sum World/g, 'Pie Palace').replace(/TAIWAN/g, 'BRITAIN').replace(/Taiwanese/g, 'British').replace(/Taiwan/g, 'Britain')
       .replace(/Keelung River/g, 'River Wandle').replace(/Keelung/g, 'Wandle').replace(/Tamsui/g, 'Beddington').replace(/Xinyi/g, 'Sutton').replace(/Zhongshan/g, 'Mitcham')
       .replace(/Longshan/g, 'Carshalton').replace(/Shilin/g, 'Wallington').replace(/Ximending/g, 'The Parade').replace(/Ximen/g, 'The Parade').replace(/Dadaocheng/g, 'Wandle Side')
       .replace(/Songshan/g, 'Purley').replace(/Wanhua/g, 'Hackbridge').replace(/Datong/g, 'Beddington').replace(/Zhongzheng/g, 'Central').replace(/Beitou/g, 'Roundshaw').replace(/Neihu/g, 'Mitcham Common').replace(/Nangang/g, 'Mitcham Junction').replace(/Da'an|Daan/g, 'Carshalton Beeches');
