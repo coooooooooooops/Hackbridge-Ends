@@ -424,9 +424,9 @@ var coarse=function(){return matchMedia('(pointer:coarse)').matches};
 function lock(){try{var o=screen.orientation;if(o&&o.lock)o.lock('landscape').catch(function(){})}catch(e){}}
 lock();['pointerdown','touchend','click'].forEach(function(ev){addEventListener(ev,lock,{passive:true})});
 function fit(){var p=document.querySelector('.phone.flip');if(!p)return;
- var side=(innerWidth>innerHeight)&&(coarse()||innerHeight<=600);
+ var small=coarse()||innerHeight<=600||innerWidth<=600;var side=(innerWidth>innerHeight)&&small;
  p.classList.toggle('hb-side',side);
- if(!(coarse()||innerHeight<=600)){p.style.removeProperty('font-size');return}
+ if(!small){p.style.removeProperty('font-size');return}
  p.style.setProperty('font-size','10px','important');
  var w=p.offsetWidth||1,h=p.offsetHeight||1;
  var s=10*Math.min(innerHeight*.94/h,innerWidth*.96/w);
